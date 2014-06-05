@@ -10,15 +10,15 @@
     {{BASE_TAG}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/first.fm.css">
+    <link rel="stylesheet" href="assets/first-fm.css">
   </head>
   <body>
     <script>
       window.ENV = {{ENV}};
     </script>
-    <script src="assets/first.fm.js"></script>
+    <script src="assets/first-fm.js"></script>
     <script>
-      window.First.Fm = require('first.fm/app')['default'].create(ENV.APP);
+      window.FirstFm = require('first-fm/app')['default'].create(ENV.APP);
     </script>
   </body>
 </html>
