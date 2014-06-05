@@ -1,4 +1,23 @@
+body {
+  padding-top: 50px;
+}
 
-html, body {
-  margin: 20px;
+.content {
+  margin-top: 15px;
+}
+
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.results {
+  h4 {
+    height: 34px;
+  }
+  .cover {
+    width: 200px;
+    height: 200px;
+  }
 }

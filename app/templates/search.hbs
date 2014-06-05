@@ -1,0 +1,18 @@
+{{#if query}}
+  <p><em class="muted">Showing {{currentPage.length}} {{pluralize-word 2 phrase="result{ |s}"}} of {{length}} for {{query}}</em></p>
+
+  <div class="results">
+    {{#each artist in currentPage itemController="search-result"}}
+      <div class="col-lg-3 col-md-4">
+        <h4>{{ artist.name }}</h4>
+
+        <img class="cover" {{bind-attr src=artist.artworkUrl.content }}>
+      </div>
+
+    {{/each}}
+  </div>
+{{else}}
+  <p><em class="muted">No query</em></p>
+{{/if}}
+
+
