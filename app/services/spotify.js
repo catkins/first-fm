@@ -26,6 +26,27 @@ var SpotifyService = Ember.Object.extend({
             });
   },
 
+  getArtist: function(spotifyId) {
+    return this.queryLookupService(spotifyId)
+            .then(function(response) {
+              return response.artist;
+            });
+  },
+
+  getAlbum: function(spotifyId) {
+    return this.queryLookupService(spotifyId)
+            .then(function(response) {
+              return response.album;
+            });
+  },
+
+  getTrack: function(spotifyId) {
+    return this.queryLookupService(spotifyId)
+            .then(function(response) {
+              return response.track;
+            });
+  },
+
   getArtwork: function(spotifyId) {
     var artworkUrlCache = this.artworkUrlCache;
 

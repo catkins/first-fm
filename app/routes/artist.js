@@ -1,6 +1,6 @@
 var ArtistRoute = Ember.Route.extend({
   model: function(params) {
-    return this.get('spotify').queryLookupService(params.artist_id);
+    return this.get('spotify').getArtist(params.artist_id);
   }
 });
 

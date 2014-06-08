@@ -1,6 +1,6 @@
 var AlbumRoute = Ember.Route.extend({
   model: function(params) {
-    return this.get('spotify').queryLookupService(params.album_id);
+    return this.get('spotify').getAlbum(params.album_id);
   }
 });
 
