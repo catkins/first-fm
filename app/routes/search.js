@@ -8,7 +8,17 @@ var SearchRoute = Ember.Route.extend({
     var query = params.query;
     var spotify = this.get('spotify');
 
-    return spotify.searchArtists(query);
+    var searchSpotify = Em.RSVP.all([
+      spotify.searchArtists(query),
+      spotify.searchAlbums(query),
+      spotify.searchTracks(query)]
+    );
+
+    return searchSpotify.then(function(results) {
+      return results.reduce(function(aggregate, resultSet) {
+        return aggregate.concat(resultSet);
+      }, []).sort(function(x,y) { return x.popularity < y.popularity; });
+    });
   }
 });
 

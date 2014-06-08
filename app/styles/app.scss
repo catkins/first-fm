@@ -1,3 +1,9 @@
+$colour-album: red;
+$colour-artist: green;
+$colour-track: blue;
+$image-loading-bg: #EEE;
+$result-bg: #FFF;
+
 body {
   padding-top: 50px;
   background-image: url('/tweed.png');
@@ -8,17 +14,54 @@ body {
 }
 
 
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+.circle
+{
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #000;
+  display: inline-block;
 }
 
-.results {
-  h4 {
-    height: 34px;
-  }
+.query-info {
+  color: #EEE;
+}
+
+.result {
+  padding: 10px;
+
   .cover {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    background: $image-loading-bg;
+  }
+
+  .title {
+    height: 40px;
+  }
+
+  .box {
+    padding: 15px;
+    background: $result-bg;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  img {
+    margin: 0 auto;
+  }
+
+  &.album {
+    .circle {
+      background: $colour-album;
+    }
+  }
+  &.artist {
+    .circle {
+     background: $colour-artist;
+    }
+  }
+  &.track {
+    .circle {
+      background: $colour-track;
+    }
   }
 }

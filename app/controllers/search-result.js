@@ -1,21 +1,24 @@
 var SearchResultController = Ember.ObjectController.extend({
-  thumbnailSize: 300,
+  placeholderImage: 'http://placehold.it/250x250&text=loading...',
+
+  resultType: function() {
+    return this.get('href').match(/:(track|album|artist):/)[1];
+  }.property('href'),
+
+  artworkUrlWithDefault: function() {
+    return this.get('artworkUrl.content') || this.placeholderImage;
+  }.property('artworkUrl.content', 'artworkUrl', 'model'),
 
   artworkUrl: function() {
-    var path = 'https://embed.spotify.com/oembed/?callback=?';
+    var spotifyId = this.get('href');
 
-    var promise = $.getJSON(path, { url: this.get('href') })
-                   .then(function(response) {
-                     var url = response.thumbnail_url.replace('cover', this.get('thumbnailSize'));
-                     return url;
-                   }.bind(this));
+    if (this.get('album.href')) {
+      spotifyId = this.get('album.href');
+    }
 
+    var promise = this.get('spotify').getArtwork(spotifyId);
     return DS.PromiseObject.create({ promise: promise});
   }.property(),
-
-  foo: function() {
-    return 'yolo';
-  }.property()
 });
 
 export default SearchResultController;
