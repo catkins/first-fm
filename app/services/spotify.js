@@ -27,14 +27,14 @@ var SpotifyService = Ember.Object.extend({
   },
 
   getArtist: function(spotifyId) {
-    return this.queryLookupService(spotifyId)
+    return this.queryLookupService(spotifyId, 'albumdetail')
             .then(function(response) {
               return response.artist;
             });
   },
 
   getAlbum: function(spotifyId) {
-    return this.queryLookupService(spotifyId)
+    return this.queryLookupService(spotifyId, 'trackdetail')
             .then(function(response) {
               return response.album;
             });
@@ -62,8 +62,8 @@ var SpotifyService = Ember.Object.extend({
     return DS.PromiseObject.create({ promise: artworkUrlCache[spotifyId]});
   },
 
-  queryLookupService: function(spotifyId) {
-    return $.getJSON(this.webLookupPath, { uri: spotifyId });
+  queryLookupService: function(spotifyId, extras) {
+    return $.getJSON(this.webLookupPath, { uri: spotifyId, extras: extras });
   },
 
   querySearchService: function(type, query) {

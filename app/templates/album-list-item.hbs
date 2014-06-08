@@ -1,0 +1,12 @@
+<div class="result col-lg-3 col-md-4 col-sm-6">
+  <div class="box">
+    {{#link-to 'album' href}}
+      <img class="cover" {{bind-attr src=artworkUrlWithDefault}} />
+
+      <div class="info">
+        <div class="title">{{name}} </div>
+        ({{released}})
+      </div>
+    {{/link-to}}
+  </div>
+</div>

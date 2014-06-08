@@ -1,2 +1,7 @@
 <h2>{{name}}</h2>
+{{!-- {{albums.length}} --}}
+{{#each item in albums}}
+  {{render 'album-list-item' item.album}}
+{{/each}}
+
 
