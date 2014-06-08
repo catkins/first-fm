@@ -19,6 +19,10 @@ var SearchResultController = Ember.ObjectController.extend({
     var promise = this.get('spotify').getArtwork(spotifyId);
     return DS.PromiseObject.create({ promise: promise});
   }.property(),
+
+  isTrack: Em.computed.equal('resultType', 'track'),
+  isAlbum: Em.computed.equal('resultType', 'album'),
+  isArtist: Em.computed.equal('resultType', 'artist')
 });
 
 export default SearchResultController;

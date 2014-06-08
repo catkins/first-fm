@@ -2,6 +2,21 @@
   <div class="box">
     <div class="result-type"><div class="circle"></div> {{resultType}}</div>
     <img class="cover" {{bind-attr src=artworkUrlWithDefault }}>
-    <div class="title"><small> {{ name }}</small></div>
+
+    <div class="info">
+      <div class="title">
+        {{#link-to resultType href}}
+          <small> {{ name }}</small>
+        {{/link-to}}
+      </div>
+
+      {{#if artists}}
+        {{#each artist in artists}}
+          <div class="muted artist-name">
+            {{#link-to 'artist' artist.href}}{{artist.name}}{{/link-to}}
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
   </div>
 </div>
