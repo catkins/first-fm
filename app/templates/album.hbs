@@ -1,2 +1,33 @@
-<h2>{{name}}</h2>
-<p>{{#link-to 'artist' artist-id}}{{artist}}{{/link-to}} {{released}} </p>
+<div class="row">
+  <div class="col-lg-4">
+    <img {{bind-attr src=artworkUrlWithDefault}}>
+  </div>
+  <div class="col-lg-8">
+    <h2>{{name}}</h2>
+    <h3>{{#link-to 'artist' artist-id}}{{artist}}{{/link-to}} {{released}} </h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="panel panel-default col-lg-12">
+    <div class="panel-heading">Tracks</div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each track in tracks itemController='track-item'}}
+          <tr>
+            <td>{{trackNumber}}</td>
+            <td>{{name}}</td>
+            <td>{{length}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
