@@ -1,7 +1,8 @@
 var SpotifyService = Ember.Object.extend({
 
   artworkUrlCache: {},
-  webServicePath: 'http://ws.spotify.com/search/1/',
+  webSearchPath: 'http://ws.spotify.com/search/1/',
+  webLookupPath: 'http://ws.spotify.com/lookup/1/.json',
   artworkPath: 'https://embed.spotify.com/oembed/?callback=?',
 
   searchArtists: function(query) {
@@ -40,8 +41,12 @@ var SpotifyService = Ember.Object.extend({
     return DS.PromiseObject.create({ promise: artworkUrlCache[spotifyId]});
   },
 
+  queryLookupService: function(spotifyId) {
+    return $.getJSON(this.webLookupPath, { uri: spotifyId });
+  },
+
   querySearchService: function(type, query) {
-    return $.getJSON(this.webServicePath + type + '.json', { q: query });
+    return $.getJSON(this.webSearchPath + type + '.json', { q: query });
   },
 
   queryEmbedService: function(spotifyId) {
