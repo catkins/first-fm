@@ -9,15 +9,8 @@
 {{#if query}}
   <div class="results">
 
-    {{#each result in currentPage itemController="search-result"}}
-      <div {{bind-attr class="resultType :col-lg-3 :col-md-4 :col-sm-6 :result"}}>
-        <div class="box">
-          <div class="result-type"><div class="circle"></div> {{resultType}}</div>
-          <img class="cover" {{bind-attr src=result.artworkUrlWithDefault }}>
-          <div class="title"><small> {{ result.name }}</small></div>
-        </div>
-      </div>
-
+    {{#each result in currentPage}}
+      {{render "search-result" result}}
     {{/each}}
   </div>
 {{/if}}
