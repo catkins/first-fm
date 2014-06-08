@@ -2,7 +2,7 @@ $colour-album: red;
 $colour-artist: green;
 $colour-track: blue;
 $image-loading-bg: #EEE;
-$result-bg: #FFF;
+$result-bg: #EEE;
 
 body {
   padding-top: 50px;
@@ -12,7 +12,6 @@ body {
 .content {
   margin-top: 15px;
 }
-
 
 .circle
 {
@@ -35,14 +34,29 @@ body {
     background: $image-loading-bg;
   }
 
+  .info {
+    height: 60px;
+  }
+
   .title {
     height: 40px;
+    overflow: hidden;
   }
 
   .box {
     padding: 15px;
     background: $result-bg;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: #FFF;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .result-type {
+    text-align: right;
+    line-height: 2em;
   }
 
   img {
