@@ -2,7 +2,6 @@ $colour-album: red;
 $colour-artist: green;
 $colour-track: blue;
 $image-loading-bg: #EEE;
-$result-bg: #EEE;
 
 body {
   padding-top: 50px;
@@ -30,13 +29,30 @@ body {
   color: #EEE;
 }
 
+.cover {
+  width: 100%;
+  background: $image-loading-bg;
+}
+
+.box {
+  padding: 15px;
+  background: #F9F9F9;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+
+  h2, h3, h4 {
+    color: #333;
+  }
+
+  &:hover {
+    background: #FFF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+  }
+}
+
+
 .result {
   padding: 10px;
 
-  .cover {
-    width: 100%;
-    background: $image-loading-bg;
-  }
 
   .info {
     height: 60px;
@@ -45,17 +61,6 @@ body {
   .title {
     height: 40px;
     overflow: hidden;
-  }
-
-  .box {
-    padding: 15px;
-    background: $result-bg;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-      background: #FFF;
-      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
-    }
   }
 
   .result-type {
