@@ -1,33 +1,44 @@
-<div class="row">
-  <div class="col-lg-4">
-    <img {{bind-attr src=artworkUrlWithDefault}}>
+<div class="box row">
+  <div class="col-lg-3 col-md-3 col-sm-3">
+    <img class="cover" {{bind-attr src=artworkUrlWithDefault}}>
   </div>
-  <div class="col-lg-8">
+
+  <div class="col-lg-9 col-md-9 col-sm-9">
     <h2>{{name}}</h2>
     <h3>{{#link-to 'artist' artist-id}}{{artist}}{{/link-to}} {{released}} </h3>
   </div>
 </div>
 
+<br />
+
 <div class="row">
-  <div class="panel panel-default col-lg-12">
-    <div class="panel-heading">Tracks</div>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Duration</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each track in tracks itemController='track-item'}}
+  <div class="col-lg-12">
+
+    <div class="panel panel-default">
+
+      <div class="panel-heading">Tracks</div>
+
+      <table class="table">
+        <thead>
           <tr>
-            <td>{{trackNumber}}</td>
-            <td>{{name}}</td>
-            <td>{{length}}</td>
+            <th>#</th>
+            <th>Name</th>
+            <th>Duration</th>
           </tr>
-        {{/each}}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          {{#each track in tracks itemController='track-item'}}
+            <tr>
+              <td>{{trackNumber}}</td>
+              <td>{{name}}</td>
+              <td>{{duration}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+
   </div>
 </div>
